@@ -1,18 +1,20 @@
-import React from 'react';
-import Header from './components/Header';
-import Home from './components/Home';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
+import Home from './components/Home'
+import TasksPage from './pages/TasksPage'
+import Header from './components/Header'
+import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <Router>
       <Header />
-      <main className="flex-grow">
-        <Home />
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/tasks" element={<TasksPage />} />
+      </Routes>
       <Footer />
-    </div>
-  );
+    </Router>
+  )
 }
 
-export default App;
+export default App
